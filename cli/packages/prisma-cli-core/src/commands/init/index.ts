@@ -253,7 +253,7 @@ ${steps.map((step, index) => `  ${index + 1}. ${step}`).join('\n')}`)
     }
 
     const dockerComposeInstalled = await isDockerComposeInstalled()
-    if (!dockerComposeInstalled) {
+    if (!dockerComposeInstalled && results.writeDockerComposeYml) {
       this.out.log(
         `\nTo install docker-compose, please follow this link: ${chalk.cyan(
           'https://docs.docker.com/compose/install/',
